@@ -1,3 +1,10 @@
 module.exports = {
-  stories: ["../stories/*.@(js|jsx|ts|tsx)"],
+  features: { postcss: false },
+  stories: ["../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  addons: [
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "@storybook/addon-actions",
+  ],
+  framework: "@storybook/react",
 };

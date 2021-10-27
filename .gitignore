@@ -110,4 +110,5 @@ dist
 .idea
 *.iml
 
-yarn.lock
+# Mac files
+.DS_Store
