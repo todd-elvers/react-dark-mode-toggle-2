@@ -3,13 +3,20 @@
 # react-dark-mode-toggle-2
 
 
-Rewrite of [react-dark-mode-toggle](https://github.com/cawfree/react-dark-mode-toggle): a super cutesy React dark mode toggle button (credit to [Alex Thoma](https://github.com/cawfree)).
+Rewrite of [react-dark-mode-toggle](https://github.com/cawfree/react-dark-mode-toggle): a cute React dark mode toggle button by [Alex Thoma](https://github.com/cawfree).
 
-<a href="https://github.com/prettier/prettier">
-    <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square">
+
+<a href="https://reactjs.org/">
+    <img src="https://badges.aleen42.com/src/react.svg" alt="react" style="max-width: 100%;">
 </a>
 <a href="https://www.typescriptlang.org">
-    <img alt="code: typescript" src="https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg">
+    <img alt="code: typescript" src="https://badges.aleen42.com/src/typescript.svg">
+</a>
+<a href="https://vitejs.dev/">
+    <img src="https://badges.aleen42.com/src/vitejs.svg" alt="vitejs" style="max-width: 100%;">
+</a>
+<a href="https://github.com/prettier/prettier">
+    <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square">
 </a>
 
 
@@ -30,20 +37,21 @@ This rewrite:
 #### How it works
 
 [react-lottie-player](https://github.com/mifi/react-lottie-player) is used to render a [Lottie](https://lottiefiles.com/)
-file (i.e. a JSON payload) in a React component we call `AnimatedDarkModeToggle`.
+file (i.e. a JSON payload) in a React component we call `DarkModeToggle`.  This underlying library is a 
+peer dependency of the project which is why you'll see it in the installation instructions below.
 
 ## 🚀 Installation
 
 ##### [`npm`](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm):
 
 ```bash
-npm i react-dark-mode-toggle-2
+npm i react-dark-mode-toggle-2 react-lottie-player
 ```
 
 ##### [`yarn`](https://classic.yarnpkg.com/en/docs/install/#mac-stable):
 
 ```bash
-yarn add react-dark-mode-toggle-2
+yarn add react-dark-mode-toggle-2 react-lottie-player
 ```
 
 
@@ -58,8 +66,8 @@ export const YourComponent = () => {
   
   return (
     <DarkModeToggle 
-      onChange={setIsDarkMode} 
-      checked={isDarkMode} 
+      onChange={setIsDarkMode}
+      isDarkMode={isDarkMode} 
       size={85} 
     />
   );
