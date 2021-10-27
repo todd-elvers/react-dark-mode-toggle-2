@@ -1,22 +1,25 @@
-## Not yet production ready!
-
 # react-dark-mode-toggle-2
 
+Rewrite of a cute dark mode toggle 🦉
 
-Rewrite of [react-dark-mode-toggle](https://github.com/cawfree/react-dark-mode-toggle): a cute React dark mode toggle button by [Alex Thoma](https://github.com/cawfree).
-
+Original library [react-dark-mode-toggle](https://github.com/cawfree/react-dark-mode-toggle) was created by
+[Alex Thoma](https://github.com/cawfree). Credit goes out to those who helped build that library to what it is today. 
+Let's see if we can take it even further.
 
 <a href="https://reactjs.org/">
-    <img src="https://badges.aleen42.com/src/react.svg" alt="react" style="max-width: 100%;">
+    <img alt="react" src="https://badges.aleen42.com/src/react.svg" >
 </a>
 <a href="https://www.typescriptlang.org">
-    <img alt="code: typescript" src="https://badges.aleen42.com/src/typescript.svg">
+    <img alt="code language: typescript" src="https://badges.aleen42.com/src/typescript.svg">
 </a>
 <a href="https://vitejs.dev/">
-    <img src="https://badges.aleen42.com/src/vitejs.svg" alt="vitejs" style="max-width: 100%;">
+    <img alt="vitejs" src="https://badges.aleen42.com/src/vitejs.svg">
 </a>
 <a href="https://github.com/prettier/prettier">
     <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square">
+</a>
+<a href="#">
+    <img alt="latest release" src="https://img.shields.io/npm/v/react-dark-mode-toggle-2?color=darkgreen">
 </a>
 
 
