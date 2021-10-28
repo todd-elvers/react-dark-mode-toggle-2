@@ -48,13 +48,13 @@ peer dependency of the project which is why you'll see it in the installation in
 ##### [`npm`](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm):
 
 ```bash
-npm i react-dark-mode-toggle-2 react-lottie-player
+npm i react-dark-mode-toggle-2
 ```
 
 ##### [`yarn`](https://classic.yarnpkg.com/en/docs/install/#mac-stable):
 
 ```bash
-yarn add react-dark-mode-toggle-2 react-lottie-player
+yarn add react-dark-mode-toggle-2
 ```
 
 
