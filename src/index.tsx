@@ -5,26 +5,24 @@ import animationData from "./animationData.json";
 import type { AnimationSegment } from "lottie-web";
 import { css, cx } from "@emotion/css";
 
-export type DarkModeToggleProps = {
-  /** Whether or not the toggle is currently in dark-mode */
-  readonly isDarkMode: boolean;
-
-  /** Use this to update the state that controls the `isDarkMode` prop */
-  readonly onChange: (isDarkMode: boolean) => void;
-
-  /** Size of the component. Numbers = pixels. Strings = "<number><unit>" e.g. "20px" or "1.5%" (default = "85px"); */
-  readonly size?: number | string;
-
-  /** Use this to control the speed at which the toggle animation occurs (default = 2.5) */
-  readonly speed?: number;
-
-  /** Optional className prop for the <button/> element (default = "") */
-  readonly className?: string;
-};
-
+// Allows accessing DarkModeToggleProps type via DarkModeToggle.Props
 export declare namespace DarkModeToggle {
-  // Allows accessing DarkModeToggleProps type via DarkModeToggle.Props
-  export type Props = DarkModeToggleProps;
+  export type Props = {
+    /** Whether or not the toggle is currently in dark-mode */
+    readonly isDarkMode: boolean;
+
+    /** Use this to update the state that controls the `isDarkMode` prop */
+    readonly onChange: (isDarkMode: boolean) => void;
+
+    /** Size of the component. Numbers = pixels. Strings = "<number><unit>" e.g. "20px" or "1.5%" (default = "85px"); */
+    readonly size?: number | string;
+
+    /** Use this to control the speed at which the toggle animation occurs (default = 2.5) */
+    readonly speed?: number;
+
+    /** Optional className prop for the <button/> element (default = "") */
+    readonly className?: string;
+  };
 }
 
 const buttonStyles = (sizeValue: number, sizeUnit: string): string =>
