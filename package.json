@@ -39,7 +39,7 @@
     "build-storybook": "build-storybook",
     "build": "yarn type-check && vite build",
     "prepublishOnly": "yarn build",
-    "releaes": "release-it"
+    "release": "release-it"
   },
   "repository": "",
   "author": "Todd Elvers <todd.elvers+github@gmail.com>",
