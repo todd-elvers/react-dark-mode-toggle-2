@@ -18,7 +18,7 @@ export default defineConfig({
 
     rollupOptions: {
       // Don't bundle react or react-dom
-      external: ["react", "react-dom", "react-lottie-player"],
+      external: ["react", "react-dom"],
 
       output: {
         globals: {
