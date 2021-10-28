@@ -38,7 +38,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build": "yarn type-check && vite build",
-    "prepublishOnly": "yarn build"
+    "prepublishOnly": "yarn build",
+    "releaes": "release-it"
   },
   "repository": "",
   "author": "Todd Elvers <todd.elvers+github@gmail.com>",
@@ -68,6 +69,7 @@
     "react": "^16.14.0 || ^17.0.0",
     "react-dom": "^16.14.0 || ^17.0.0",
     "react-lottie-player": "^1.4.1",
+    "release-it": "^14.11.6",
     "rimraf": "^3.0.2",
     "rollup": "^2.58.3",
     "rollup-plugin-typescript2": "^0.30.0",
