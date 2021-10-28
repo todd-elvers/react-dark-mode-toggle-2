@@ -62,7 +62,7 @@ const arePropsEqual = (
   prevProps.className === nextProps.className;
 
 export const DarkModeToggle = React.memo<DarkModeToggle.Props>(
-  ({ isDarkMode, onChange, size = 85, speed = 2, className = "" }) => {
+  ({ isDarkMode, onChange, size = 85, speed = 1.3, className = "" }) => {
     const [sizeValue, sizeUnit] = parseUnit(size);
     const [isLottieReady, setLottieReady] = React.useState(false); // Hide the toggle until Lottie is ready
     const [isReadyToAnimate, setReadyToAnimate] = React.useState(false); // Disable animation of toggle until first click
