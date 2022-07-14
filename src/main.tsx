@@ -1,5 +1,5 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
+import React from "react";
+import { createRoot } from "react-dom/client";
 import { DarkModeToggle } from "./index";
 
 const ControlledDarkModeToggle = () => {
@@ -24,9 +24,10 @@ const ControlledDarkModeToggle = () => {
   );
 };
 
-ReactDOM.render(
+const container = document.getElementById("root");
+const root = createRoot(container!);
+root.render(
   <React.StrictMode>
     <ControlledDarkModeToggle />
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 );
