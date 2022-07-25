@@ -1,5 +1,5 @@
 import { defineConfig } from "vite";
-import reactRefresh from "@vitejs/plugin-react-refresh";
+import reactRefresh from "@vitejs/plugin-react";
 // import typescript from "rollup-plugin-typescript2";
 import typescript from "@rollup/plugin-typescript";
 
