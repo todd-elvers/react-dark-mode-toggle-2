@@ -41,7 +41,7 @@
     "prepublishOnly": "yarn build",
     "prepare": "husky install"
   },
-  "repository": "",
+  "repository": "https://github.com/todd-elvers/react-dark-mode-toggle-2",
   "author": "Todd Elvers <todd.elvers+github@gmail.com>",
   "license": "MIT",
   "private": false,
