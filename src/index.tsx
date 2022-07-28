@@ -8,7 +8,7 @@ import { css, cx } from "@emotion/css";
 // Allows accessing DarkModeToggleProps type via DarkModeToggle.Props
 export declare namespace DarkModeToggle {
   export type Props = {
-    /** Whether or not the toggle is currently in dark-mode */
+    /** Whether the toggle is currently in dark-mode */
     readonly isDarkMode: boolean;
 
     /** Use this to update the state that controls the `isDarkMode` prop */
@@ -31,25 +31,20 @@ export const DarkModeToggle = React.memo<DarkModeToggle.Props>(
     const [sizeValue, sizeUnit] = parseUnit(size);
     const [segments, setSegments] = React.useState<AnimationSegment>([0, 0]);
     const [goTo, setGoTo] = React.useState(0);
-
-    // Used to hide the LottiePlayer until it attempts to draw it's first frame
+    const [isReadyToAnimate, setReadyToAnimate] = React.useState(false);
     const [isLottiePlayerVisible, setLottiePlayerVisible] = React.useState(false);
 
-    // Used to ensure we snap to the initial position of the toggle instead of animating to it
-    const [isReadyToAnimate, setReadyToAnimate] = React.useState(false);
-
-    // Snap the toggle to it's initial position, do not animate to it
+    // Snap the toggle to the initial position, do not animate to it
     React.useEffect(() => {
       setTimeout(() => {
-        setSegments(isDarkMode ? [40, 41] : [0, 1]); // Snap to initial position
-        setReadyToAnimate(true); // Enable animations
+        setSegments(isDarkMode ? [40, 41] : [0, 1]);
+        setReadyToAnimate(true);
       }, 10);
     }, []);
 
-    // Re-adjust 'goTo' and 'segments' based on the current state of the toggle
+    // Switch the direction of the animation when the mode changes
     React.useEffect(() => {
       if (!isLottiePlayerVisible) return;
-
       setGoTo(isDarkMode ? 41 : 0);
       setSegments(isDarkMode ? [0, 41] : [42, 96]);
     }, [isLottiePlayerVisible, isDarkMode]);
@@ -68,9 +63,7 @@ export const DarkModeToggle = React.memo<DarkModeToggle.Props>(
           loop={false}
           segments={segments}
           goTo={goTo}
-          onEnterFrame={() => {
-            setLottiePlayerVisible(true);
-          }}
+          onEnterFrame={() => setLottiePlayerVisible(true)}
         />
       </button>
     );
@@ -91,7 +84,6 @@ function arePropsEqual(prevProps: DarkModeToggle.Props, nextProps: DarkModeToggl
 
 function lottieStyles(isLottieReady: boolean, sizeValue: number, sizeUnit: string): string {
   return css({
-    // display: "flex",
     display: isLottieReady ? "flex" : "none",
     alignItems: "center",
     justifyContent: "center",
