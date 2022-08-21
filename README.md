@@ -8,19 +8,19 @@ Original library [react-dark-mode-toggle](https://github.com/cawfree/react-dark-
 <a href="https://reactjs.org/">
     <img alt="react" src="https://badges.aleen42.com/src/react.svg" >
 </a>
-<a href="https://www.typescriptlang.org">
+<a href="https://www.typescriptlang.org" style="padding-left: 10px">
     <img alt="code language: typescript" src="https://badges.aleen42.com/src/typescript.svg">
 </a>
-<a href="https://vitejs.dev/">
+<a href="https://vitejs.dev/" style="padding-left: 10px">
     <img alt="vitejs" src="https://badges.aleen42.com/src/vitejs.svg">
 </a>
-<a href="https://github.com/prettier/prettier">
+<a href="https://github.com/prettier/prettier" style="padding-left: 10px">
     <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square">
 </a>
-<a href="#">
+<a href="#" style="padding-left: 10px">
     <img alt="latest release" src="https://img.shields.io/npm/v/react-dark-mode-toggle-2?color=darkgreen&label=latest">
 </a>
-<a href="#">
+<a href="#" style="padding-left: 10px">
     <img alt="bundle size" src="https://img.badgesize.io//todd-elvers/react-dark-mode-toggle-2/main/assets/index.cjs.js.svg?compression=gzip">
 </a>
 
