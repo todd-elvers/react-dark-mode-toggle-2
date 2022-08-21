@@ -25,7 +25,6 @@ export declare namespace DarkModeToggle {
   };
 }
 
-// TODO: Add ESLint
 export const DarkModeToggle = React.memo<DarkModeToggle.Props>(
   ({ isDarkMode, onChange, size = 85, speed = 1.3, className = "" }) => {
     const [sizeValue, sizeUnit] = parseUnit(size);
