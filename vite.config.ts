@@ -1,17 +1,16 @@
 import { defineConfig } from "vite";
-import reactRefresh from "@vitejs/plugin-react";
-// import typescript from "rollup-plugin-typescript2";
+import react from "@vitejs/plugin-react";
 import typescript from "@rollup/plugin-typescript";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [reactRefresh()],
+  plugins: [react()],
 
   build: {
     // Instruct Vite to bundle this project as a library
     lib: {
       entry: "src/index.tsx",
-      name: "animated-dark-mode-toggle",
+      name: "react-dark-mode-toggle-2",
       formats: ["cjs", "es"],
       fileName: (format) => `index.${format}.js`,
     },

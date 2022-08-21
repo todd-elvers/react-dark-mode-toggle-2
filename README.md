@@ -91,6 +91,10 @@ Prop                  | Type     | Default                   | Required
 
 > **Note**, this is _not_ a dark mode theme implementation; it's just a button! You'll need to mix this with a management solution such as [use-dark-mode](https://github.com/donavon/use-dark-mode).
 
+### 🤝 Contributing
+
+Use `yarn storybook` to run Storybook for local development.  Make your changes on a fork, submit a PR, and I'll review it ASAP. 
+
 ### 📝 Notes
 
 In Chrome, you may experience a blue outline around the toggle button after clicking it.
