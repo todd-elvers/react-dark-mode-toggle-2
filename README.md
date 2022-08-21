@@ -24,7 +24,7 @@ Original library [react-dark-mode-toggle](https://github.com/cawfree/react-dark-
     <img alt="latest release" src="https://img.shields.io/npm/v/react-dark-mode-toggle-2?color=darkgreen&label=latest">
 </a>
 <a href="#">
-    <img alt="bundle size" src="https://img.badgesize.io//todd-elvers/react-dark-mode-toggle-2/main/assets/index.cjs.js.svg">
+    <img alt="bundle size" src="https://img.badgesize.io//todd-elvers/react-dark-mode-toggle-2/main/assets/index.cjs.js.svg?compression=gzip">
 </a>
 
 
