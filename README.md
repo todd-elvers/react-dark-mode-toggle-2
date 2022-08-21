@@ -36,7 +36,7 @@ This rewrite:
 - Adds Rollup bundling support (ESM/CJS output targets)
 - Adds CSS vendor prefixing via [Emotion](https://github.com/emotion-js/emotion/tree/main/packages/css)
 - Resolves some outstanding animation issues
-- Reduces bundle size to ~71kb gzipped
+- Reduces bundle size to less than 70kb gzipped
 
 
 #### How it works
