@@ -1,8 +1,5 @@
 # react-dark-mode-toggle-2
 
-https://img.badgesize.io/:filepath[.svg|png|jpg][?compression=gzip|brotli][&label=string][&max=string][&softmax=string]
-
-
 Rewrite of a cute dark mode toggle 🦉
 
 Original library [react-dark-mode-toggle](https://github.com/cawfree/react-dark-mode-toggle) was created by
