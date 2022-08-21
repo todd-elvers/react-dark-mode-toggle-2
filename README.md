@@ -37,13 +37,13 @@ This rewrite:
 - Adds CSS vendor prefixing via [Emotion](https://github.com/emotion-js/emotion/tree/main/packages/css)
 - Resolves some outstanding animation issues
 - Reduces bundle size to less than 70kb gzipped
+- React 18 support
 
 
 #### How it works
 
 [react-lottie-player](https://github.com/mifi/react-lottie-player) is used to render a [Lottie](https://lottiefiles.com/)
-file (i.e. a JSON payload) in a React component we call `DarkModeToggle`.  This underlying library is a 
-peer dependency of the project which is why you'll see it in the installation instructions below.
+file (i.e. a JSON payload) in a React component we call `DarkModeToggle`.
 
 ## 🚀 Installation
 
