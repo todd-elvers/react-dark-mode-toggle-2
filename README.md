@@ -1,10 +1,12 @@
 # react-dark-mode-toggle-2
 
+https://img.badgesize.io/:filepath[.svg|png|jpg][?compression=gzip|brotli][&label=string][&max=string][&softmax=string]
+
+
 Rewrite of a cute dark mode toggle 🦉
 
 Original library [react-dark-mode-toggle](https://github.com/cawfree/react-dark-mode-toggle) was created by
 [Alex Thoma](https://github.com/cawfree). Credit goes out to those who helped build that library to what it is today. 
-Let's see if we can take it even further.
 
 <a href="https://reactjs.org/">
     <img alt="react" src="https://badges.aleen42.com/src/react.svg" >
@@ -21,6 +23,10 @@ Let's see if we can take it even further.
 <a href="#">
     <img alt="latest release" src="https://img.shields.io/npm/v/react-dark-mode-toggle-2?color=darkgreen&label=latest">
 </a>
+<a href="#">
+    <img alt="bundle size" src="https://img.badgesize.io//todd-elvers/react-dark-mode-toggle-2/main/assets/index.cjs.js.svg">
+</a>
+
 
 
 <p align="center">
@@ -32,9 +38,8 @@ This rewrite:
 - Adds native TS support
 - Adds Rollup bundling support (ESM/CJS output targets)
 - Adds CSS vendor prefixing via [Emotion](https://github.com/emotion-js/emotion/tree/main/packages/css)
-- Resolves issue where prop `checked` is `true` but the toggle initially renders in light-mode then snaps to dark-mode
-- Updates `react-lottie-player` to latest for TS support & to fix the above flickering problem
-- Project infrastructure (e.g. prettier, husky, lint-staged, etc.)
+- Resolves some outstanding animation issues
+- Reduces bundle size to ~71kb gzipped
 
 
 #### How it works
