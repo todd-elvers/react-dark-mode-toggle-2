@@ -27,7 +27,7 @@
 
 A cute dark mode toggle 🦉
 
-### Key features
+## 🗝 Key features
 
 - Small bundle size <a href="#">
   <img alt="bundle size" src="https://img.badgesize.io//todd-elvers/react-dark-mode-toggle-2/main/assets/index.cjs.js.svg?compression=gzip">
@@ -35,27 +35,23 @@ A cute dark mode toggle 🦉
 - Written in TypeScript
 - React 18 support
 
-
-#### Original Work
-Original library [react-dark-mode-toggle](https://github.com/cawfree/react-dark-mode-toggle) was created by
-[Alex Thoma](https://github.com/cawfree). Credit to them and the community for the original work.
-
-
-
 ## 🚀 Installation
-
-##### [`npm`](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm):
-
-```bash
-npm i react-dark-mode-toggle-2
-```
-
-##### [`yarn`](https://classic.yarnpkg.com/en/docs/install/#mac-stable):
 
 ```bash
 yarn add react-dark-mode-toggle-2
 ```
 
+or
+
+```bash
+npm install react-dark-mode-toggle-2 --save
+```
+
+or
+
+```bash
+pnpm add react-dark-mode-toggle-2
+```
 
 ## ✨ Usage
 
@@ -92,6 +88,12 @@ Prop                  | Type                                                    
 
 In Chrome, you may experience a blue outline around the toggle button after clicking it.
 If this behavior concerns you see [this issue](https://github.com/cawfree/react-dark-mode-toggle/issues/17) for more information and available workarounds. 
+
+
+### 🤝 Original Work
+Original library [react-dark-mode-toggle](https://github.com/cawfree/react-dark-mode-toggle) was created by
+[Alex Thoma](https://github.com/cawfree). Credit to them and the community for the original work.
+
 
 ## ✌️ License
 [MIT](https://opensource.org/licenses/MIT)
