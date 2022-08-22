@@ -1,10 +1,10 @@
 # react-dark-mode-toggle-2
 
-Rewrite of a cute dark mode toggle 🦉
+<p align="center">
+  <img src="./assets/title.gif" width="300" height="300" />
+</p>
 
-Original library [react-dark-mode-toggle](https://github.com/cawfree/react-dark-mode-toggle) was created by
-[Alex Thoma](https://github.com/cawfree). Credit goes out to those who helped build that library to what it is today. 
-
+<p align="center">
 <a href="https://reactjs.org/">
     <img alt="react" src="https://badges.aleen42.com/src/react.svg" >
 </a>
@@ -23,27 +23,26 @@ Original library [react-dark-mode-toggle](https://github.com/cawfree/react-dark-
 <a href="#">
     <img alt="bundle size" src="https://img.badgesize.io//todd-elvers/react-dark-mode-toggle-2/main/assets/index.cjs.js.svg?compression=gzip">
 </a>
-
-
-
-<p align="center">
-  <img src="./assets/title.gif" width="300" height="300" />
 </p>
 
+A cute dark mode toggle 🦉
 
-This rewrite:
-- Adds native TS support
-- Adds Rollup bundling support (ESM/CJS output targets)
-- Adds CSS vendor prefixing via [Emotion](https://github.com/emotion-js/emotion/tree/main/packages/css)
-- Resolves some outstanding animation issues
-- Reduces bundle size to less than 70kb gzipped
+### Key features
+
+- Small bundle size <a href="#">
+  <img alt="bundle size" src="https://img.badgesize.io//todd-elvers/react-dark-mode-toggle-2/main/assets/index.cjs.js.svg?compression=gzip">
+  </a>
+- Written in TypeScript
 - React 18 support
 
 
-#### How it works
+<br/>
 
-[react-lottie-player](https://github.com/mifi/react-lottie-player) is used to render a [Lottie](https://lottiefiles.com/)
-file (i.e. a JSON payload) in a React component we call `DarkModeToggle`.
+#### Original Work
+Original library [react-dark-mode-toggle](https://github.com/cawfree/react-dark-mode-toggle) was created by
+[Alex Thoma](https://github.com/cawfree). Credit to them and the community for the original work.
+
+
 
 ## 🚀 Installation
 
