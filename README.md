@@ -36,8 +36,6 @@ A cute dark mode toggle 🦉
 - React 18 support
 
 
-<br/>
-
 #### Original Work
 Original library [react-dark-mode-toggle](https://github.com/cawfree/react-dark-mode-toggle) was created by
 [Alex Thoma](https://github.com/cawfree). Credit to them and the community for the original work.
