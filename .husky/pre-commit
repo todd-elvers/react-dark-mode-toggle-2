@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-yarn build && yarn test && yarn lint-staged && yarn refresh-build-size-badge
+yarn build && yarn lint:fix && yarn test && yarn lint-staged && yarn refresh-build-size-badge

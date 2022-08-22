@@ -1,7 +1,8 @@
-import * as React from "react";
-import { DarkModeToggle } from "./index";
-import * as Storybook from "@storybook/react";
 import { action } from "@storybook/addon-actions";
+import * as Storybook from "@storybook/react";
+import * as React from "react";
+
+import { DarkModeToggle } from "./index";
 
 export default {
   title: "Toggle",
@@ -15,13 +16,10 @@ export default {
   },
 } as Storybook.Meta;
 
-const Template: Storybook.Story<Omit<DarkModeToggle.Props, "onChange">> = (
-  props
-) => {
-  // Locally state controlling the toggle
+const Template: Storybook.Story<Omit<DarkModeToggle.Props, "onChange">> = (props) => {
   const [isDarkMode, setIsDarkMode] = React.useState(props.isDarkMode);
 
-  // Update our local state if user toggles `isDarkMode` in Storybook UI
+  // Keep our local dark mode state in sync w/ the inputs inside of Storybook
   React.useEffect(() => setIsDarkMode(props.isDarkMode), [props.isDarkMode]);
 
   return (
