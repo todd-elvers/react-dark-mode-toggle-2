@@ -1,4 +1,4 @@
-<p align="center" style="font-size: 2.2rem">
+<p align="center" style="font-size: 45px">
     react-dark-mode-toggle-2
 </p>
 
