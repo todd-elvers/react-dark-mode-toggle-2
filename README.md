@@ -80,13 +80,13 @@ export const YourComponent = () => {
 
 ## 📌 Props
 
-Prop                  | Type     | Default                   | Required
---------------------- | -------- | ------------------------- | --------
-`onChange`|func|N/A|Yes
-`isDarkMode`|boolean|N/A|Yes
-`size`|number (defaults to `px`) or a string containing a number+unit (e.g `"10px"`, `"2em"`, `"4.5rem"`, `"100%"`, etc). These units may also have a space between them (e.g. `"10 px"`, `"2 em"`, etc).|`85px`|No
-`speed`|number|`1.3`|No
-`className`|string|`''`|No|
+Prop                  | Type                                                                                                                                                                                               | Default                   | Required
+--------------------- |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| ------------------------- | --------
+`isDarkMode`| boolean                                                                                                                                                                                            |N/A|Yes
+`onChange`| function that recieves a single argument: the new value of `isDarkMode`                                                                                                                             |N/A|Yes
+`size`| number (defaults to `px`) or a string containing a number+unit (e.g `"10px"`, `"2em"`, `"4.5rem"`, `"100%"`, etc). These units may also have a space between them (e.g. `"10 px"`, `"2 em"`, etc). |`85px`|No
+`speed`| number                                                                                                                                                                                             |`1.3`|No
+`className`| string                                                                                                                                                                                             |`''`|No|
 
 > **Note**, this is _not_ a dark mode theme implementation; it's just a button! You'll need to mix this with a management solution such as [use-dark-mode](https://github.com/donavon/use-dark-mode).
 
