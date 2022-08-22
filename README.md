@@ -1,4 +1,6 @@
-# react-dark-mode-toggle-2
+<p align="center" style="font-size: 2.2rem">
+    react-dark-mode-toggle-2
+</p>
 
 <p align="center">
   <img src="./assets/title.gif" width="300" height="300" />
