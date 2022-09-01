@@ -1,5 +1,5 @@
 import { css, cx } from "@emotion/css";
-import type { AnimationSegment } from "lottie-web";
+import { AnimationSegment } from "lottie-web";
 import * as React from "react";
 import LottiePlayerLight from "react-lottie-player/dist/LottiePlayerLight";
 
@@ -25,43 +25,46 @@ export declare namespace DarkModeToggle {
   };
 }
 
+const lightToDarkSegment: AnimationSegment = [0, 41];
+const darkToLightSegment: AnimationSegment = [42, 96];
+
 export const DarkModeToggle = React.memo<DarkModeToggle.Props>(
   ({ isDarkMode, onChange, size = 85, speed = 1.3, className = "" }) => {
     const [sizeValue, sizeUnit] = parseUnit(size);
     const [segments, setSegments] = React.useState<AnimationSegment>([0, 0]);
+    const [goTo] = React.useState(isDarkMode ? darkToLightSegment[0] : lightToDarkSegment[0]);
 
-    const [isToggleVisible, setIsToggleVisible] = React.useState(false);
-    const [canToggleAnimate, setCanToggleAnimate] = React.useState(false);
+    // Used to snap to the toggle's initial position instead of animating to it
+    const [playAnimation, setPlayAnimation] = React.useState(false);
 
-    // On initial render: snap the toggle to the correct position, do not animate to it
-    useDelayedEffectOnce(() => {
-      setSegments(isDarkMode ? [40, 41] : [0, 1]);
-      setCanToggleAnimate(true);
-    });
+    // Used to prevent an initial flicker of incorrect state
+    const [isLottiePlayerMounted, setIsLottiePlayerMounted] = React.useState<boolean>(false);
 
-    // On toggle change: switch the direction of the animation
-    React.useEffect(() => {
-      setSegments(isDarkMode ? [0, 41] : [42, 96]);
-    }, [isDarkMode]);
+    const onToggleClick = () => {
+      setSegments(!isDarkMode ? lightToDarkSegment : darkToLightSegment);
+      setPlayAnimation(true);
+      onChange(!isDarkMode);
+    };
+
+    const onLottiePlayerMounted = () => {
+      setIsLottiePlayerMounted(true);
+    };
 
     return (
       <button
-        onClick={() => onChange(!isDarkMode)}
+        onClick={onToggleClick}
         aria-hidden="true"
         className={cx(buttonStyles(sizeValue, sizeUnit), className)}
       >
         <LottiePlayerLight
-          className={playerStyles(isToggleVisible, sizeValue, sizeUnit)}
-          play={canToggleAnimate}
-          speed={speed}
-          animationData={animationData}
+          className={playerStyles(isLottiePlayerMounted, sizeValue, sizeUnit)}
           loop={false}
+          speed={speed}
+          play={playAnimation}
+          animationData={animationData}
+          goTo={goTo}
           segments={segments}
-          onEnterFrame={() => {
-            // Hide the toggle until animation has begun to avoid potentially
-            // flashing the toggle in the incorrect position momentarily
-            if (!isToggleVisible) setIsToggleVisible(true);
-          }}
+          onLoad={onLottiePlayerMounted}
         />
       </button>
     );
@@ -70,13 +73,6 @@ export const DarkModeToggle = React.memo<DarkModeToggle.Props>(
 );
 
 DarkModeToggle.displayName = "DarkModeToggle";
-
-function useDelayedEffectOnce(effect: () => void) {
-  return React.useEffect(() => {
-    setTimeout(() => effect(), 0);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-}
 
 function arePropsEqual(prevProps: DarkModeToggle.Props, nextProps: DarkModeToggle.Props) {
   return (
@@ -100,9 +96,9 @@ function buttonStyles(sizeValue: number, sizeUnit: string): string {
   });
 }
 
-function playerStyles(isPlayerVisible: boolean, sizeValue: number, sizeUnit: string): string {
+function playerStyles(isLoaded: boolean, sizeValue: number, sizeUnit: string): string {
   return css({
-    display: isPlayerVisible ? "flex" : "none",
+    display: isLoaded ? "flex" : "none",
     alignItems: "center",
     justifyContent: "center",
     marginTop: `${sizeValue * -0.575}${sizeUnit}`,
