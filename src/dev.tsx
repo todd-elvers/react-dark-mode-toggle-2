@@ -14,8 +14,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   </React.StrictMode>
 );
 
-const lightToDarkSegment: AnimationSegment = [0, 41];
-const darkToLightSegment: AnimationSegment = [42, 96];
+const lightToDarkSegment: AnimationSegment = [5, 50];
+const darkToLightSegment: AnimationSegment = [50, 95];
 
 function LocalDevelopment() {
   const [segmentFrom, setSegmentFrom] = React.useState(lightToDarkSegment[0]);
@@ -47,6 +47,7 @@ function LocalDevelopment() {
     setSegmentTo(!isDarkMode ? lightToDarkSegment[1] : darkToLightSegment[1]);
     setPlayAnimation(true);
     setIsDarkMode(!isDarkMode);
+    console.time("Animation duration");
   };
 
   const onLottiePlayerMounted = () => {
@@ -94,7 +95,10 @@ function LocalDevelopment() {
               width: 280,
               height: 180,
             }}
-            onComplete={() => addLog("complete")}
+            onComplete={() => {
+              addLog("complete");
+              console.timeEnd("Animation duration");
+            }}
             onLoopComplete={() => addLog("loopComplete")}
             onSegmentStart={() => addLog("segmentStart")}
           />

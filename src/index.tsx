@@ -25,8 +25,8 @@ export declare namespace DarkModeToggle {
   };
 }
 
-const lightToDarkSegment: AnimationSegment = [0, 41];
-const darkToLightSegment: AnimationSegment = [42, 96];
+const lightToDarkSegment: AnimationSegment = [5, 50];
+const darkToLightSegment: AnimationSegment = [50, 95];
 
 export const DarkModeToggle = React.memo<DarkModeToggle.Props>(
   ({ isDarkMode, onChange, size = 85, speed = 1.3, className = "" }) => {
