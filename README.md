@@ -61,7 +61,6 @@ export const YourComponent = () => {
     <DarkModeToggle 
       onChange={setIsDarkMode}
       isDarkMode={isDarkMode} 
-      size={85} 
     />
   );
 };
