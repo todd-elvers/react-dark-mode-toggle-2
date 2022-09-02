@@ -11,12 +11,6 @@
 <a href="https://www.typescriptlang.org">
     <img alt="code language: typescript" src="https://badges.aleen42.com/src/typescript.svg">
 </a>
-<a href="https://vitejs.dev/">
-    <img alt="vitejs" src="https://badges.aleen42.com/src/vitejs.svg">
-</a>
-<a href="https://github.com/prettier/prettier">
-    <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square">
-</a>
 <a href="#">
     <img alt="latest release" src="https://img.shields.io/npm/v/react-dark-mode-toggle-2?color=darkgreen&label=latest">
 </a>
@@ -34,6 +28,7 @@ A cute dark mode toggle 🦉
   </a>
 - Written in TypeScript
 - React 18 support
+- ESM support
 
 ## 🚀 Installation
 
