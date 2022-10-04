@@ -22,6 +22,10 @@ export declare namespace DarkModeToggle {
 
     /** Optional className prop for the <button/> element (default = "") */
     readonly className?: string;
+
+    /** Allow optional any prop for like testing purpose */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    readonly [key: string]: any;
   };
 }
 
