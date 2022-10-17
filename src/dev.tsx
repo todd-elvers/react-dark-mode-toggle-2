@@ -79,6 +79,7 @@ function LocalDevelopment() {
           onClick={onToggleClick}
           aria-hidden="true"
           style={{ display: isLottiePlayerMounted ? "block" : "none" }}
+          id="dark-mode-toggle"
         >
           <LottiePlayerLight
             loop={false}

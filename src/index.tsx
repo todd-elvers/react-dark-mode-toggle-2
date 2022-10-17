@@ -23,9 +23,8 @@ export declare namespace DarkModeToggle {
     /** Optional className prop for the <button/> element (default = "") */
     readonly className?: string;
 
-    /** Allow optional any prop for like testing purpose */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    readonly [key: string]: any;
+    /** Allow optional id prop */
+    readonly id?: string;
   };
 }
 
@@ -33,7 +32,7 @@ const lightToDarkSegment: AnimationSegment = [5, 50];
 const darkToLightSegment: AnimationSegment = [50, 95];
 
 export const DarkModeToggle = React.memo<DarkModeToggle.Props>(
-  ({ isDarkMode, onChange, size = 85, speed = 1.3, className = "" }) => {
+  ({ isDarkMode, onChange, size = 85, speed = 1.3, className = "", id = "" }) => {
     const [sizeValue, sizeUnit] = parseUnit(size);
     const [segments, setSegments] = React.useState<AnimationSegment>([0, 0]);
     const [goTo] = React.useState(isDarkMode ? darkToLightSegment[0] : lightToDarkSegment[0]);
@@ -59,6 +58,7 @@ export const DarkModeToggle = React.memo<DarkModeToggle.Props>(
         onClick={onToggleClick}
         aria-hidden="true"
         className={cx(buttonStyles(sizeValue, sizeUnit), className)}
+        id={id}
       >
         <LottiePlayerLight
           className={playerStyles(isLottiePlayerMounted, sizeValue, sizeUnit)}
@@ -83,7 +83,8 @@ function arePropsEqual(prevProps: DarkModeToggle.Props, nextProps: DarkModeToggl
     prevProps.size === nextProps.size &&
     prevProps.isDarkMode === nextProps.isDarkMode &&
     prevProps.speed === nextProps.speed &&
-    prevProps.className === nextProps.className
+    prevProps.className === nextProps.className &&
+    prevProps.id === nextProps.id
   );
 }
 
