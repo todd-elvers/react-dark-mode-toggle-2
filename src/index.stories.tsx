@@ -26,6 +26,7 @@ const Template: Storybook.Story<Omit<DarkModeToggle.Props, "onChange">> = (props
     <DarkModeToggle
       {...props}
       isDarkMode={isDarkMode}
+      id="dark-mode-toggle"
       onChange={(isDarkMode) => {
         action("onChange")({ isDarkMode });
         console.log("onChange called:", { isDarkMode });
