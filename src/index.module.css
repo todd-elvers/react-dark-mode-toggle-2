@@ -1,0 +1,18 @@
+.button {
+      cursor: pointer;
+      overflow: hidden;
+      appearance: none;
+      border: none;
+      background-color: transparent;
+      padding: 0;
+  }
+  
+  .player {
+      display: none;
+      align-items: center;
+      justify-content: center;
+  }
+  
+  .player--loaded {
+    display: flex;
+  }

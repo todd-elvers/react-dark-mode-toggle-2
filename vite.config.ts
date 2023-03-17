@@ -1,11 +1,14 @@
 import typescript from "@rollup/plugin-typescript";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
+import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 
-// https://vitejs.dev/config/
+import pkg from "./package.json";
+
+const externals = Object.keys(pkg.peerDependencies);
+
 export default defineConfig({
-  plugins: [react()],
-
+  plugins: [react(), cssInjectedByJsPlugin({ topExecutionPriority: false })],
   build: {
     lib: {
       entry: "src/index.tsx",
@@ -15,7 +18,7 @@ export default defineConfig({
 
     rollupOptions: {
       // Don't bundle react or react-dom
-      external: ["react", "react-dom"],
+      external: externals,
 
       plugins: [
         // Write the types to our dist directory
