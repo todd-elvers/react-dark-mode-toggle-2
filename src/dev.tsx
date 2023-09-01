@@ -33,6 +33,10 @@ function LocalDevelopment() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  React.useEffect(() => {
+    onToggleDarkModeState();
+  }, [isDarkMode]);
+
   const [log, setLog] = React.useState<string[]>([]);
   const addLog = (v: string) => setLog((l) => [v, ...l]);
 
@@ -41,6 +45,12 @@ function LocalDevelopment() {
 
   // Used to prevent an initial flicker of incorrect state
   const [isLottiePlayerMounted, setIsLottiePlayerMounted] = React.useState<boolean>(false);
+
+  const onToggleDarkModeState = () => {
+    setSegmentFrom(!isDarkMode ? lightToDarkSegment[0] : darkToLightSegment[0]);
+    setSegmentTo(!isDarkMode ? lightToDarkSegment[1] : darkToLightSegment[1]);
+    setPlayAnimation(true);
+  };
 
   const onToggleClick = () => {
     setSegmentFrom(!isDarkMode ? lightToDarkSegment[0] : darkToLightSegment[0]);
@@ -56,6 +66,9 @@ function LocalDevelopment() {
 
   return (
     <div
+      // Uncomment to test useEffect handler for external state change
+      // This will make any click in the page change the isDarkMode state
+      // onClick={() => setIsDarkMode(!isDarkMode)} 
       style={{
         display: "flex",
         justifyContent: "center",

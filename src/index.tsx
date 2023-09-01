@@ -43,6 +43,16 @@ export const DarkModeToggle = React.memo<DarkModeToggle.Props>(
     // Used to prevent an initial flicker of incorrect state
     const [isLottiePlayerMounted, setIsLottiePlayerMounted] = React.useState<boolean>(false);
 
+    //Allow the component to react to external changes to the isDarkMode prop
+    React.useEffect(() => {
+      onToggleDarkModeState();
+    }, [isDarkMode]);
+    
+    const onToggleDarkModeState = () => {
+      setSegments(!isDarkMode ? lightToDarkSegment : darkToLightSegment);
+      setPlayAnimation(true);
+    };
+
     const onToggleClick = () => {
       setSegments(!isDarkMode ? lightToDarkSegment : darkToLightSegment);
       setPlayAnimation(true);
