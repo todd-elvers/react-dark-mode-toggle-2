@@ -47,10 +47,10 @@ export const DarkModeToggle = React.memo<DarkModeToggle.Props>(
     React.useEffect(() => {
       onToggleDarkModeState();
     }, [isDarkMode]);
-    
+
     const onToggleDarkModeState = () => {
-      setSegments(!isDarkMode ? lightToDarkSegment : darkToLightSegment);
-      setPlayAnimation(true);
+      setSegments(isDarkMode ? lightToDarkSegment : darkToLightSegment);
+      setPlayAnimation(isLottiePlayerMounted);
     };
 
     const onToggleClick = () => {

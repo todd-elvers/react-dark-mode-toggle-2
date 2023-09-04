@@ -3,6 +3,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import LottiePlayerLight from "react-lottie-player/dist/LottiePlayerLight";
 
+import { DarkModeToggle } from ".";
 import animationData from "./animationData.json";
 
 /** Local development page w/ animation controls - called when running 'yarn dev' */
@@ -11,12 +12,45 @@ import animationData from "./animationData.json";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <LocalDevelopment />
+    {/* <LocalDevelopmentComponent /> */}
   </React.StrictMode>
 );
 
 const lightToDarkSegment: AnimationSegment = [5, 50];
 const darkToLightSegment: AnimationSegment = [50, 95];
 
+function LocalDevelopmentComponent() {
+  const [isDarkMode, setIsDarkMode] = React.useState(true);
+  return (
+    <div
+      // Uncomment to test useEffect handler for external state change
+      // This will make any click in the page change the isDarkMode state
+      onClick={() => setIsDarkMode(!isDarkMode)}
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+        height: "100vh",
+      }}
+    >
+      <div
+        style={{
+          boxShadow: "0 0 10px 10px rgba(0,0,0,0.03)",
+          width: 300,
+          maxWidth: "100%",
+          margin: 30,
+          padding: 30,
+          borderRadius: 7,
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <DarkModeToggle isDarkMode={isDarkMode} onChange={setIsDarkMode} />
+      </div>
+    </div>
+  );
+}
 function LocalDevelopment() {
   const [segmentFrom, setSegmentFrom] = React.useState(lightToDarkSegment[0]);
   const [segmentTo, setSegmentTo] = React.useState(lightToDarkSegment[1]);
@@ -32,10 +66,6 @@ function LocalDevelopment() {
     console.log(`Should start in ${isDarkMode ? "dark" : "light"} mode`);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  React.useEffect(() => {
-    onToggleDarkModeState();
-  }, [isDarkMode]);
 
   const [log, setLog] = React.useState<string[]>([]);
   const addLog = (v: string) => setLog((l) => [v, ...l]);
@@ -68,7 +98,7 @@ function LocalDevelopment() {
     <div
       // Uncomment to test useEffect handler for external state change
       // This will make any click in the page change the isDarkMode state
-      // onClick={() => setIsDarkMode(!isDarkMode)} 
+      // onClick={() => setIsDarkMode(!isDarkMode)}
       style={{
         display: "flex",
         justifyContent: "center",
