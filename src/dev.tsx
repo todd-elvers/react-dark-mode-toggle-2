@@ -19,38 +19,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 const lightToDarkSegment: AnimationSegment = [5, 50];
 const darkToLightSegment: AnimationSegment = [50, 95];
 
-function LocalDevelopmentComponent() {
-  const [isDarkMode, setIsDarkMode] = React.useState(true);
-  return (
-    <div
-      // Uncomment to test useEffect handler for external state change
-      // This will make any click in the page change the isDarkMode state
-      onClick={() => setIsDarkMode(!isDarkMode)}
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "column",
-        height: "100vh",
-      }}
-    >
-      <div
-        style={{
-          boxShadow: "0 0 10px 10px rgba(0,0,0,0.03)",
-          width: 300,
-          maxWidth: "100%",
-          margin: 30,
-          padding: 30,
-          borderRadius: 7,
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        <DarkModeToggle isDarkMode={isDarkMode} onChange={setIsDarkMode} />
-      </div>
-    </div>
-  );
-}
 function LocalDevelopment() {
   const [segmentFrom, setSegmentFrom] = React.useState(lightToDarkSegment[0]);
   const [segmentTo, setSegmentTo] = React.useState(lightToDarkSegment[1]);
@@ -96,9 +64,6 @@ function LocalDevelopment() {
 
   return (
     <div
-      // Uncomment to test useEffect handler for external state change
-      // This will make any click in the page change the isDarkMode state
-      // onClick={() => setIsDarkMode(!isDarkMode)}
       style={{
         display: "flex",
         justifyContent: "center",
@@ -268,6 +233,39 @@ function LocalDevelopment() {
             <div key={i}>{l}</div>
           ))}
         </div>
+      </div>
+    </div>
+  );
+}
+
+function LocalDevelopmentComponent() {
+  const [isDarkMode, setIsDarkMode] = React.useState(true);
+  return (
+    <div
+      // Uncomment to test useEffect handler for external state change
+      // This will make any click in the page change the isDarkMode state
+      // onClick={() => setIsDarkMode(!isDarkMode)}
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+        height: "100vh",
+      }}
+    >
+      <div
+        style={{
+          boxShadow: "0 0 10px 10px rgba(0,0,0,0.03)",
+          width: 300,
+          maxWidth: "100%",
+          margin: 30,
+          padding: 30,
+          borderRadius: 7,
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <DarkModeToggle isDarkMode={isDarkMode} onChange={setIsDarkMode} />
       </div>
     </div>
   );
