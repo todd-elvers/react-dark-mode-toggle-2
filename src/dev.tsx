@@ -3,6 +3,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import LottiePlayerLight from "react-lottie-player/dist/LottiePlayerLight";
 
+import { DarkModeToggle } from ".";
 import animationData from "./animationData.json";
 
 /** Local development page w/ animation controls - called when running 'yarn dev' */
@@ -11,6 +12,7 @@ import animationData from "./animationData.json";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <LocalDevelopment />
+    {/* <LocalDevelopmentComponent /> */}
   </React.StrictMode>
 );
 
@@ -41,6 +43,12 @@ function LocalDevelopment() {
 
   // Used to prevent an initial flicker of incorrect state
   const [isLottiePlayerMounted, setIsLottiePlayerMounted] = React.useState<boolean>(false);
+
+  const onToggleDarkModeState = () => {
+    setSegmentFrom(!isDarkMode ? lightToDarkSegment[0] : darkToLightSegment[0]);
+    setSegmentTo(!isDarkMode ? lightToDarkSegment[1] : darkToLightSegment[1]);
+    setPlayAnimation(true);
+  };
 
   const onToggleClick = () => {
     setSegmentFrom(!isDarkMode ? lightToDarkSegment[0] : darkToLightSegment[0]);
@@ -225,6 +233,39 @@ function LocalDevelopment() {
             <div key={i}>{l}</div>
           ))}
         </div>
+      </div>
+    </div>
+  );
+}
+
+function LocalDevelopmentComponent() {
+  const [isDarkMode, setIsDarkMode] = React.useState(true);
+  return (
+    <div
+      // Uncomment to test useEffect handler for external state change
+      // This will make any click in the page change the isDarkMode state
+      // onClick={() => setIsDarkMode(!isDarkMode)}
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+        height: "100vh",
+      }}
+    >
+      <div
+        style={{
+          boxShadow: "0 0 10px 10px rgba(0,0,0,0.03)",
+          width: 300,
+          maxWidth: "100%",
+          margin: 30,
+          padding: 30,
+          borderRadius: 7,
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <DarkModeToggle isDarkMode={isDarkMode} onChange={setIsDarkMode} />
       </div>
     </div>
   );
