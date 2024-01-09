@@ -1,9 +1,10 @@
-import { css, cx } from "@emotion/css";
+import cx from "classnames";
 import { AnimationSegment } from "lottie-web";
 import * as React from "react";
 import LottiePlayerLight from "react-lottie-player/dist/LottiePlayerLight";
 
 import animationData from "./animationData.json";
+import styles from "./index.module.css";
 import { parseUnit } from "./parseUnit";
 
 export declare namespace DarkModeToggle {
@@ -68,11 +69,21 @@ export const DarkModeToggle = React.memo<DarkModeToggle.Props>(
       <button
         onClick={onToggleClick}
         aria-hidden="true"
-        className={cx(buttonStyles(sizeValue, sizeUnit), className)}
+        style={{
+          width: `${sizeValue}${sizeUnit}`,
+          height: `${sizeValue * 0.5}${sizeUnit}`,
+        }}
+        className={cx(styles.button, className)}
         id={id}
       >
         <LottiePlayerLight
-          className={playerStyles(isLottiePlayerMounted, sizeValue, sizeUnit)}
+          className={cx(styles.player, { [styles["player--loaded"]]: isLottiePlayerMounted })}
+          style={{
+            marginTop: `${sizeValue * -0.575}${sizeUnit}`,
+            marginLeft: `${sizeValue * -0.32}${sizeUnit}`,
+            width: `${sizeValue * 1.65}${sizeUnit}`,
+            height: `${sizeValue * 1.65}${sizeUnit}`,
+          }}
           loop={false}
           speed={speed}
           play={playAnimation}
@@ -97,29 +108,4 @@ function arePropsEqual(prevProps: DarkModeToggle.Props, nextProps: DarkModeToggl
     prevProps.className === nextProps.className &&
     prevProps.id === nextProps.id
   );
-}
-
-function buttonStyles(sizeValue: number, sizeUnit: string): string {
-  return css({
-    cursor: "pointer",
-    overflow: "hidden",
-    width: `${sizeValue}${sizeUnit}`,
-    height: `${sizeValue * 0.5}${sizeUnit}`,
-    appearance: "none",
-    border: "none",
-    backgroundColor: "transparent",
-    padding: 0,
-  });
-}
-
-function playerStyles(isLoaded: boolean, sizeValue: number, sizeUnit: string): string {
-  return css({
-    display: isLoaded ? "flex" : "none",
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: `${sizeValue * -0.575}${sizeUnit}`,
-    marginLeft: `${sizeValue * -0.32}${sizeUnit}`,
-    width: `${sizeValue * 1.65}${sizeUnit}`,
-    height: `${sizeValue * 1.65}${sizeUnit}`,
-  });
 }
