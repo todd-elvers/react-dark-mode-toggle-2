@@ -11,15 +11,17 @@ import animationData from "./animationData.json";
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <LocalDevelopment />
-    {/* <LocalDevelopmentComponent /> */}
+    <div style={{ display: "flex", justifyContent: "center" }}>
+      <AnimationDebugger />
+      <ParentChangesDebugger />
+    </div>
   </React.StrictMode>
 );
 
 const lightToDarkSegment: AnimationSegment = [5, 50];
 const darkToLightSegment: AnimationSegment = [50, 95];
 
-function LocalDevelopment() {
+function AnimationDebugger() {
   const [segmentFrom, setSegmentFrom] = React.useState(lightToDarkSegment[0]);
   const [segmentTo, setSegmentTo] = React.useState(lightToDarkSegment[1]);
   const [segmentsEnabled, setSegmentsEnabled] = React.useState(true);
@@ -43,12 +45,6 @@ function LocalDevelopment() {
 
   // Used to prevent an initial flicker of incorrect state
   const [isLottiePlayerMounted, setIsLottiePlayerMounted] = React.useState<boolean>(false);
-
-  const onToggleDarkModeState = () => {
-    setSegmentFrom(!isDarkMode ? lightToDarkSegment[0] : darkToLightSegment[0]);
-    setSegmentTo(!isDarkMode ? lightToDarkSegment[1] : darkToLightSegment[1]);
-    setPlayAnimation(true);
-  };
 
   const onToggleClick = () => {
     setSegmentFrom(!isDarkMode ? lightToDarkSegment[0] : darkToLightSegment[0]);
@@ -83,6 +79,9 @@ function LocalDevelopment() {
           flexDirection: "column",
         }}
       >
+        <h3 style={{ marginTop: 0, marginBottom: 16, display: "flex", justifyContent: "center" }}>
+          Animation Debugger
+        </h3>
         <button
           onClick={onToggleClick}
           aria-hidden="true"
@@ -238,13 +237,11 @@ function LocalDevelopment() {
   );
 }
 
-function LocalDevelopmentComponent() {
+function ParentChangesDebugger() {
   const [isDarkMode, setIsDarkMode] = React.useState(true);
+
   return (
     <div
-      // Uncomment to test useEffect handler for external state change
-      // This will make any click in the page change the isDarkMode state
-      // onClick={() => setIsDarkMode(!isDarkMode)}
       style={{
         display: "flex",
         justifyContent: "center",
@@ -265,7 +262,50 @@ function LocalDevelopmentComponent() {
           flexDirection: "column",
         }}
       >
-        <DarkModeToggle isDarkMode={isDarkMode} onChange={setIsDarkMode} />
+        <h3
+          style={{
+            marginTop: 0,
+            marginBottom: 16,
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          Parent Changes Debugger
+        </h3>
+
+        <div
+          style={{
+            marginBottom: 5,
+            display: "flex",
+            gap: 10,
+          }}
+        >
+          <label htmlFor="parentState">Parent state:</label>
+          <div id="parentState" style={{ fontStyle: "italic" }}>
+            {isDarkMode ? "dark" : "light"}
+          </div>
+        </div>
+        <button
+          style={{
+            marginBottom: 5,
+            gap: 10,
+            borderRadius: "6px",
+          }}
+          onClick={() => setIsDarkMode(!isDarkMode)}
+        >
+          Change parent state
+        </button>
+        <fieldset
+          style={{
+            border: "1px solid black",
+
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <legend>Child Component</legend>
+          <DarkModeToggle isDarkMode={isDarkMode} onChange={setIsDarkMode} />
+        </fieldset>
       </div>
     </div>
   );
