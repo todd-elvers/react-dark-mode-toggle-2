@@ -29,6 +29,7 @@ A cute dark mode toggle 🦉
 - Written in TypeScript
 - React 18 support
 - ESM support
+- SSR support
 
 ## 🚀 Installation
 
@@ -58,9 +59,9 @@ export const YourComponent = () => {
   const [isDarkMode, setIsDarkMode] = React.useState(false);
   
   return (
-    <DarkModeToggle 
+    <DarkModeToggle
+      isDarkMode={isDarkMode}
       onChange={setIsDarkMode}
-      isDarkMode={isDarkMode} 
     />
   );
 };
