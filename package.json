@@ -10,7 +10,8 @@
       {
         "import": "./dist/index.es.js",
         "require": "./dist/index.cjs.js",
-        "default": "./dist/index.cjs.js"
+        "default": "./dist/index.cjs.js",
+        "types": "./dist/index.d.ts"
       }
     ],
     "./package.json": "./package.json"
