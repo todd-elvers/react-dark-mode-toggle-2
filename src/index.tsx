@@ -9,8 +9,8 @@ import { parseUnit } from "./parseUnit";
 
 export declare namespace DarkModeToggle {
   export type Props = {
-    /** Custom attributes to set on the button element. */
-    readonly attributes?: React.ButtonHTMLAttributes<HTMLButtonElement>[];
+    /** Custom attributes to set on the button element. Should contain keys that match React.HTMLProps<HTMLButtonElement>. */
+    readonly attributes?: object;
 
     /** Whether the toggle is currently in dark-mode */
     readonly isDarkMode: boolean;
