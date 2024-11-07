@@ -9,6 +9,9 @@ import { parseUnit } from "./parseUnit";
 
 export declare namespace DarkModeToggle {
   export type Props = {
+    /** Custom attributes to set on the button element. Should contain keys that match React.HTMLProps<HTMLButtonElement>. */
+    readonly attributes?: object;
+
     /** Whether the toggle is currently in dark-mode */
     readonly isDarkMode: boolean;
 
@@ -33,7 +36,7 @@ const lightToDarkSegment: AnimationSegment = [5, 50];
 const darkToLightSegment: AnimationSegment = [50, 95];
 
 export const DarkModeToggle = React.memo<DarkModeToggle.Props>(
-  ({ isDarkMode, onChange, size = 85, speed = 1.3, className = "", id = "" }) => {
+  ({ attributes = {}, isDarkMode, onChange, size = 85, speed = 1.3, className = "", id = "" }) => {
     const [sizeValue, sizeUnit] = parseUnit(size);
     const [segments, setSegments] = React.useState<AnimationSegment>([0, 0]);
     const [goTo] = React.useState(isDarkMode ? darkToLightSegment[0] : lightToDarkSegment[0]);
@@ -67,8 +70,8 @@ export const DarkModeToggle = React.memo<DarkModeToggle.Props>(
 
     return (
       <button
+        {...attributes}
         onClick={onToggleClick}
-        aria-hidden="true"
         style={{
           width: `${sizeValue}${sizeUnit}`,
           height: `${sizeValue * 0.5}${sizeUnit}`,
