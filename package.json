@@ -1,6 +1,6 @@
 {
   "name": "react-dark-mode-toggle-2",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "An updated, cute dark mode toggle button for React.",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
@@ -52,8 +52,8 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "classnames": "^2.3.2",
-    "react-lottie-player": "^1.4.3"
+    "classnames": "^2.5.1",
+    "react-lottie-player": "^2.1.0"
   },
   "peerDependencies": {
     "react": "^16.14.0 || ^17.0.0 || ^18.0.0",
