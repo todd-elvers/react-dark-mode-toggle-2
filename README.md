@@ -1,31 +1,19 @@
 # react-dark-mode-toggle-2
 
-<p align="center">
-  <img src="./assets/title.gif" width="300" height="300" />
-</p>
+<div align="center">
+  <img src="./assets/title.gif" width="300" height="300" alt="title animation" />
 
-<p align="center">
-<a href="https://reactjs.org/">
-    <img alt="react" src="https://badges.aleen42.com/src/react.svg" >
-</a>
-<a href="https://www.typescriptlang.org">
-    <img alt="code language: typescript" src="https://badges.aleen42.com/src/typescript.svg">
-</a>
-<a href="#">
-    <img alt="latest release" src="https://img.shields.io/npm/v/react-dark-mode-toggle-2?color=darkgreen&label=latest">
-</a>
-<a href="#">
-    <img alt="bundle size" src="https://img.badgesize.io//todd-elvers/react-dark-mode-toggle-2/main/assets/index.cjs.js.svg?compression=gzip">
-</a>
-</p>
+[![react](https://badges.aleen42.com/src/react.svg)](https://reactjs.org/)
+[![typescript](https://badges.aleen42.com/src/typescript.svg)](https://www.typescriptlang.org)
+[![latest release](https://img.shields.io/npm/v/react-dark-mode-toggle-2?color=darkgreen&label=latest)](#)
+[![bundle size](https://img.badgesize.io//todd-elvers/react-dark-mode-toggle-2/main/assets/index.cjs.js.svg?compression=gzip)](#)
+</div>
 
 A cute dark mode toggle 🦉
 
 ## 🗝 Key features
 
-- Small bundle size <a href="#">
-  <img alt="bundle size" src="https://img.badgesize.io//todd-elvers/react-dark-mode-toggle-2/main/assets/index.cjs.js.svg?compression=gzip">
-  </a>
+- Small bundle size
 - Written in TypeScript
 - React 18 support
 - ESM support
