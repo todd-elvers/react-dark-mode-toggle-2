@@ -1,6 +1,6 @@
 {
   "name": "@trevorlasn/react-dark-mode-toggle-2",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "An updated, cute dark mode toggle button for React.",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
