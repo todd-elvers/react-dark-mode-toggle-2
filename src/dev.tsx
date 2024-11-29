@@ -1,6 +1,6 @@
 import { AnimationDirection, AnimationSegment } from "lottie-web";
 import * as React from "react";
-import * as ReactDOM from "react-dom/client";
+import { createRoot } from "react-dom/client";
 import LottiePlayerLight from "react-lottie-player/dist/LottiePlayerLight";
 
 import { DarkModeToggle } from ".";
@@ -9,7 +9,7 @@ import animationData from "./animationData.json";
 /** Local development page w/ animation controls - called when running 'yarn dev' */
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-ReactDOM.createRoot(document.getElementById("root")!).render(
+createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <div style={{ display: "flex", justifyContent: "center" }}>
       <AnimationDebugger />

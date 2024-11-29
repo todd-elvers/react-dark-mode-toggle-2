@@ -1,6 +1,6 @@
 {
-  "name": "react-dark-mode-toggle-2",
-  "version": "2.1.1",
+  "name": "@trevorlasn/react-dark-mode-toggle-2",
+  "version": "1.0.1",
   "description": "An updated, cute dark mode toggle button for React.",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
@@ -47,12 +47,11 @@
     "prepublishOnly": "yarn build",
     "prepare": "husky install"
   },
-  "repository": "https://github.com/todd-elvers/react-dark-mode-toggle-2",
-  "author": "Todd Elvers <todd.elvers+github@gmail.com>",
+  "repository": "https://github.com/indreklasn/react-dark-mode-toggle-2",
+  "author": "Trevor I. Lsn <trevor.lasn+github@gmail.com>",
   "license": "MIT",
-  "private": false,
   "dependencies": {
-    "classnames": "^2.5.1",
+    "clsx": "^2.1.1",
     "react-lottie-player": "^2.1.0"
   },
   "peerDependencies": {
@@ -84,8 +83,8 @@
     "jest": "^28.1.3",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
-    "react": "^16.14.0 || ^17.0.0 || ^18.0.0",
-    "react-dom": "^16.14.0 || ^17.0.0 || ^18.0.0",
+    "react": "18",
+    "react-dom": "18",
     "rimraf": "^3.0.2",
     "rollup": "^2.76.0",
     "rollup-plugin-polyfill-node": "^0.12.0",
@@ -103,5 +102,6 @@
   "prettier": {
     "printWidth": 100,
     "quoteProps": "consistent"
-  }
+  },
+  "packageManager": "yarn@4.5.3+sha512.3003a14012e2987072d244c720506549c1aab73ee728208f1b2580a9fd67b92d61ba6b08fe93f6dce68fd771e3af1e59a0afa28dd242dd0940d73b95fedd4e90"
 }
