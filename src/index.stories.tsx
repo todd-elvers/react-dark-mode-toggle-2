@@ -16,7 +16,9 @@ export default {
   },
 } as Storybook.Meta;
 
-const Template: Storybook.Story<Omit<DarkModeToggle.Props, "onChange">> = (props) => {
+const Template: Storybook.StoryFn<Omit<DarkModeToggle.Props, "onChange">> = (
+  props: Omit<DarkModeToggle.Props, "onChange">,
+) => {
   const [isDarkMode, setIsDarkMode] = React.useState(props.isDarkMode);
 
   // Keep our local dark mode state in sync w/ the inputs inside of Storybook

@@ -15,7 +15,7 @@ createRoot(document.getElementById("root")!).render(
       <AnimationDebugger />
       <ParentChangesDebugger />
     </div>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
 
 const lightToDarkSegment: AnimationSegment = [5, 50];

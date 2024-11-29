@@ -1,11 +1,9 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["./src"],
-  "exclude": ["./src/dev.tsx", "./src/**/*.test.ts", "./src/**/*.stories.tsx"],
   "compilerOptions": {
-    "noEmit": false,
-    "emitDeclarationOnly": true,
+    "outDir": "./dist",
     "declaration": true,
-    "declarationDir": "./dist",
-  }
+    "emitDeclarationOnly": true
+  },
+  "exclude": ["**/*.test.*", "**/*.spec.*", "src/**/*.stories.tsx"]
 }

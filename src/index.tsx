@@ -1,8 +1,65 @@
-import * as React from "react";
-import { AnimationSegment } from "lottie-web";
 import clsx from "clsx";
+import { AnimationSegment } from "lottie-web";
+import * as React from "react";
+import type { LottieProps } from "react-lottie-player";
+
 import styles from "./index.module.css";
 import { parseUnit } from "./parseUnit";
+
+interface LottieLayer {
+  ddd: number;
+  ind: number;
+  ty: number;
+  nm: string;
+  sr: number;
+  ks: {
+    o: { a: number; k: number; ix: number };
+    r: { a: number; k: number; ix: number };
+    p: { a: number; k: number[]; ix: number };
+    a: { a: number; k: number[]; ix: number };
+    s: { a: number; k: number[]; ix: number };
+  };
+  ao: number;
+  ip: number;
+  op: number;
+  st: number;
+  bm: number;
+}
+
+interface LottieAsset {
+  id: string;
+  w: number;
+  h: number;
+  p: string;
+  u: string;
+  e: number;
+}
+
+interface LottieAnimationData {
+  v: string;
+  fr: number;
+  ip: number;
+  op: number;
+  w: number;
+  h: number;
+  nm: string;
+  ddd: number;
+  assets: LottieAsset[];
+  layers: LottieLayer[];
+}
+
+type Dependencies = {
+  LottiePlayer: React.ComponentType<LottieProps>;
+  animationData: LottieAnimationData;
+} | null;
+
+const loadDependencies = async (): Promise<Dependencies> => {
+  const [{ default: LottiePlayer }, { default: animationData }] = (await Promise.all([
+    import("react-lottie-player/dist/LottiePlayerLight"),
+    import("./animationData.json"),
+  ])) as [{ default: React.ComponentType<LottieProps> }, { default: LottieAnimationData }];
+  return { LottiePlayer, animationData };
+};
 
 export declare namespace DarkModeToggle {
   export type Props = {
@@ -19,15 +76,6 @@ export declare namespace DarkModeToggle {
 const lightToDarkSegment: AnimationSegment = [5, 50];
 const darkToLightSegment: AnimationSegment = [50, 95];
 
-// Dynamically import both the player and animation data
-const loadDependencies = async () => {
-  const [{ default: LottiePlayer }, { default: animationData }] = await Promise.all([
-    import("react-lottie-player/dist/LottiePlayerLight"),
-    import("./animationData.json"),
-  ]);
-  return { LottiePlayer, animationData };
-};
-
 export const DarkModeToggle = React.memo<DarkModeToggle.Props>(
   ({ attributes = {}, isDarkMode, onChange, size = 85, speed = 1.3, className = "", id = "" }) => {
     const [sizeValue, sizeUnit] = parseUnit(size);
@@ -35,12 +83,13 @@ export const DarkModeToggle = React.memo<DarkModeToggle.Props>(
     const [goTo] = React.useState(isDarkMode ? darkToLightSegment[0] : lightToDarkSegment[0]);
     const [playAnimation, setPlayAnimation] = React.useState(false);
     const [isLottiePlayerMounted, setIsLottiePlayerMounted] = React.useState(false);
-    const [dependencies, setDependencies] = React.useState<{
-      LottiePlayer: any;
-      animationData: any;
-    } | null>(null);
+    const [dependencies, setDependencies] = React.useState<Dependencies>(null);
 
-    // Load dependencies on mount
+    const onToggleDarkModeState = React.useCallback(() => {
+      setSegments(isDarkMode ? lightToDarkSegment : darkToLightSegment);
+      setPlayAnimation(isLottiePlayerMounted);
+    }, [isDarkMode, isLottiePlayerMounted]);
+
     React.useEffect(() => {
       let mounted = true;
       loadDependencies().then((deps) => {
@@ -55,12 +104,7 @@ export const DarkModeToggle = React.memo<DarkModeToggle.Props>(
 
     React.useEffect(() => {
       onToggleDarkModeState();
-    }, [isDarkMode]);
-
-    const onToggleDarkModeState = React.useCallback(() => {
-      setSegments(isDarkMode ? lightToDarkSegment : darkToLightSegment);
-      setPlayAnimation(isLottiePlayerMounted);
-    }, [isDarkMode, isLottiePlayerMounted]);
+    }, [isDarkMode, onToggleDarkModeState]);
 
     const onToggleClick = React.useCallback(() => {
       setSegments(!isDarkMode ? lightToDarkSegment : darkToLightSegment);
@@ -83,6 +127,8 @@ export const DarkModeToggle = React.memo<DarkModeToggle.Props>(
         }}
         className={clsx(styles.button, className)}
         id={id}
+        role="switch"
+        aria-checked={isDarkMode}
       >
         {dependencies ? (
           <dependencies.LottiePlayer
@@ -105,17 +151,6 @@ export const DarkModeToggle = React.memo<DarkModeToggle.Props>(
       </button>
     );
   },
-  arePropsEqual
 );
 
 DarkModeToggle.displayName = "DarkModeToggle";
-
-function arePropsEqual(prevProps: DarkModeToggle.Props, nextProps: DarkModeToggle.Props) {
-  return (
-    prevProps.size === nextProps.size &&
-    prevProps.isDarkMode === nextProps.isDarkMode &&
-    prevProps.speed === nextProps.speed &&
-    prevProps.className === nextProps.className &&
-    prevProps.id === nextProps.id
-  );
-}
